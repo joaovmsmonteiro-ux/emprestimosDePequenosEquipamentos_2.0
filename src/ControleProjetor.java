@@ -1,11 +1,11 @@
 package src;
 
-public class Pointer {
+public class ControleProjetor {
     private int id;
     private String nome;
     private boolean disponibilidade;
 
-    public Pointer(int id, String nome) {
+    public ControleProjetor(int id, String nome) {
         this.id = id;
         this.nome = nome;
         this.disponibilidade = true;
@@ -40,4 +40,5 @@ public class Pointer {
                 ", disponibilidade=" + disponibilidade +
                 '}';
     }
+
 }

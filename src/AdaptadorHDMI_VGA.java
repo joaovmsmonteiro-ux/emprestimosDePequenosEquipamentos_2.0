@@ -1,11 +1,11 @@
 package src;
 
-public class Pointer {
-    private int id;
+public class AdaptadorHDMI_VGA {
+     private int id;
     private String nome;
     private boolean disponibilidade;
 
-    public Pointer(int id, String nome) {
+    public AdaptadorHDMI_VGA(int id, String nome) {
         this.id = id;
         this.nome = nome;
         this.disponibilidade = true;
