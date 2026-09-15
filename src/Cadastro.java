@@ -1,7 +1,77 @@
 package src;
 
-public class Cadastro {
+import java.time.LocalDateTime;
 
+public class Cadastro {
+    private int id;
+    private String nome;
+    private String email;
+    private String nomeGestor;
+    private String emailGestor;
+    private LocalDateTime dataEmprestimo;
+
+    public Cadastro(int id, String nome, String email, String nomeGestor, String emailGestor, LocalDateTime dataEmprestimo) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.nomeGestor = nomeGestor;
+        this.emailGestor = emailGestor;
+        this.dataEmprestimo = dataEmprestimo;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getNome() {
+        return nome;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setNomeGestor(String nomeGestor) {
+        this.nomeGestor = nomeGestor;
+    }
+    public String getNomeGestor() {
+        return nomeGestor;
+    }
+
+    public void setEmailGestor(String emailGestor) {
+        this.emailGestor = emailGestor;
+    }
+    public String getEmailGestor() {
+        return emailGestor;
+    }
+
+    public void setDataEmprestimo(LocalDateTime dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
+    }
+    public LocalDateTime getDataEmprestimo() {
+        return dataEmprestimo;
+    }
+
+    @Override
+    public String toString() {
+        return "Cadastro{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", nomeGestor='" + nomeGestor + '\'' +
+                ", emailGestor='" + emailGestor + '\'' +
+                ", dataEmprestimo=" + dataEmprestimo +
+                '}';
+    }
 }
 
 

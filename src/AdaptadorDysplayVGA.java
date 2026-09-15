@@ -1,7 +1,7 @@
 package src;
 
 public class AdaptadorDysplayVGA {
-     private int id;
+    private int id;
     private String nome;
     private boolean disponibilidade;
 
