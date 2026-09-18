@@ -1,11 +1,11 @@
 package src;
 
-public class AdaptadorDysplayVGA {
+public class AdaptadorDisplayVGA {
     private int id;
     private String nome;
     private boolean disponibilidade;
 
-    public AdaptadorDysplayVGA(int id, String nome) {
+    public AdaptadorDisplayVGA(int id, String nome) {
         this.id = id;
         this.nome = nome;
         this.disponibilidade = true;
