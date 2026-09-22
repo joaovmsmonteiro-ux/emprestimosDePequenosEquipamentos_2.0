@@ -34,7 +34,7 @@ public class ControleProjetor {
 
     @Override 
     public String toString() {
-        return "Pointer{" +
+        return "ControleProjetor{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", disponibilidade=" + disponibilidade +

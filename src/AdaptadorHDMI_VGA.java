@@ -34,7 +34,7 @@ public class AdaptadorHDMI_VGA {
 
     @Override 
     public String toString() {
-        return "Pointer{" +
+        return "AdaptadorHDMI_VGA{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", disponibilidade=" + disponibilidade +

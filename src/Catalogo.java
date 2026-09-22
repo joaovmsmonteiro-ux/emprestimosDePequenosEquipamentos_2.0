@@ -39,27 +39,47 @@ public class Catalogo {
                utilizando a variável opcao (que acessa o objeto servico criado para a classe Servicos) */
             switch (opcao) {
                 case 1:  
-                    /* Cria um objeto da ArrayList para adcionar equipamentos */
-                    adaptadoresDysplayVGAs.add(servicos.adicionarAdaptadoresDysplayVGAs(id_AdaptadorDisplayVGA));
-                    adaptadoresHDMI_VGAs.add(servicos.adicionarAdaptadoresHDMI_VGAs(id_AdaptadorHDMI_VGA));
-                    cabosHDMIs.add(servicos.adicionarCabosHDMIs(id_CaboHDMI));
-                    cadastros.add(servicos.adicionarCabosHDMIs(id_Cadastro));                    
-                    controlesProjetores.add(servicos.adicionarControlesProjetores(id_ControleProjetor));                    
-                    pointers.add(servicos.adcionarPointers(id_Pointer));                    
+                    //Chama o submenu para cadastrar cada item individualmente
+                    int tipoEquipamento = servicos.cadastroTipoEquipamento();
 
-                    break;
+                    switch (tipoEquipamento) {
+                        case 1:
+                            //Cria objeto da do submenu para ser adcionado no Formulário 
+                            // utilizando as variaveis cirada para os IDS
+                            adaptadoresDysplayVGAs.add(servicos.addAdaptadoresDisplayVGAs(id_AdaptadorDisplayVGA));
+                            id_AdaptadorDisplayVGA++;                                
+                            break;
+                        case 2:
+                            adaptadoresHDMI_VGAs.add(servicos.addAdaptadoresHDMI_VGAs(id_AdaptadorHDMI_VGA));
+                            id_AdaptadorHDMI_VGA++;
+                            break;
+                        case 3:
+                            cabosHDMIs.add(servicos.addCabosHDMI(id_CaboHDMI));
+                            id_CaboHDMI++;
+                            break;
+                        case 4:
+                            controlesProjetores.add(servicos.addControlesProjetores(id_ControleProjetor));
+                            id_ControleProjetor++;
+                            break;
+                        case 5:
+                            pointers.add(servicos.addPointers(id_Pointer));
+                            id_Pointer++;
+                            break;
+                        case 0:
+                            System.out.println("Retornando...");
+                            break;                    
+                        default:
+                            break;
+                    }
+                break;
                 case 6:
                     parar = true;
                     System.out.println("Encerrando...");                    
                     break;
+                default:
+                    System.out.println("Opção inválida no menu principal!");
             }
         }while(!parar);
-
-
-        /* microEquipamentos */
-
-
-
-
+        scanner.close();
     }
 }

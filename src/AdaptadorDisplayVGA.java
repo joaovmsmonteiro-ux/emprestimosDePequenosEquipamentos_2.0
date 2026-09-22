@@ -34,7 +34,7 @@ public class AdaptadorDisplayVGA {
 
     @Override 
     public String toString() {
-        return "Pointer{" +
+        return "AdaptadorDisplayVGA{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", disponibilidade=" + disponibilidade +

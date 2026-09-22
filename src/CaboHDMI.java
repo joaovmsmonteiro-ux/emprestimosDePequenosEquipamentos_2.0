@@ -33,7 +33,7 @@ public class CaboHDMI {
 
     @Override 
     public String toString() {
-        return "Pointer{" +
+        return "CaboHDMI{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", disponibilidade=" + disponibilidade +
