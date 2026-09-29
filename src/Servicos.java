@@ -1,5 +1,6 @@
 package src;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Servicos {
@@ -24,56 +25,15 @@ public class Servicos {
         return opcao;
     }
 
-    //Submenu para escolher qual tipo de equipamento cadastrar    
-    public int cadastroTipoEquipamento(){
-        System.out.println("\n--- Escolha o Equipamento para Cadastrar ---");
-        System.out.println("[1] Adaptador DisplayPort/VGA");
-        System.out.println("[2] Adaptador HDMI/VGA");
-        System.out.println("[3] Cabo HDMI");
-        System.out.println("[4] Controle de Projetor");
-        System.out.println("[5] Pointer");
-        System.out.println("[0] Voltar ao menu principal");
-
-        int tipo = scanner.nextInt();
-        scanner.nextLine();
-        return tipo;
+    public Equipamento adicionarEquipamento(int id){
+        System.out.println("Digite o nome do equipamento: ");
+        String titulo = scanner.nextLine();
+        System.out.println("Digite a data de cadastro do item: ");
+        String cadastro = scanner.nextLocalDateTime();
+        //Criação de objeto da classe equipamento para ser acessada
+        Equipamento equipamento = new Equipamento(id, nomeEquipamento, cadastro);
+        System.out.println();
+        System.out.println("Livro asicionado com sucesso!");
+        return Equipamento; 
     }
-
-    //Metodos de adição de equipamento
-    public AdaptadorDisplayVGA addAdaptadoresDisplayVGAs(int id){
-        System.out.println("Cadastrando Adaptador Display / VGA (ID: ");
-        String nome = scanner.nextLine();
-        //AdaptadorDisplayVGA adaptadorDisplayVGA = new AdaptadorDisplayVGA(id, nome);
-        //return adaptadorDisplayVGA;
-        System.out.println("Adaptador Display / VGA adcionado com sucesso!");
-        return new AdaptadorDisplayVGA(id, nome);
-    }
-
-    public AdaptadorHDMI_VGA addAdaptadoresHDMI_VGAs(int id){
-        System.out.println("Cadastrando Adaptador HDMI / VGA (ID: ");
-        String nome = scanner.nextLine();
-        System.out.println("Adaptador HDMI / VGA adcionado com sucesso!");
-        return new AdaptadorHDMI_VGA(id, nome);
-    }
-
-    public CaboHDMI addCabosHDMI(int id){
-        System.out.println("Cadastrando Cabos HDMI (ID: ");
-        String nome = scanner.nextLine();
-        System.out.println("Cabos HDMI adcionado com sucesso!");
-        return new CaboHDMI(id, nome);
-    }
-
-    public ControleProjetor addControlesProjetores(int id){
-        System.out.println("Cadastrando Controle de Projetor (ID: ");
-        String nome = scanner.nextLine();
-        System.out.println("Controle de Projetor adcionado com sucesso!");
-        return new ControleProjetor(id, nome);
-    }
-
-    public Pointer addPointers(int id){
-        System.out.println("Cadastrando Pointer (ID: ");
-        String nome = scanner.nextLine();
-        System.out.println("Pointer adcionado com sucesso!");
-        return new Pointer(id, nome);
-    }
-}
+} 
