@@ -47,12 +47,12 @@ public class Equipamento {
 
     @Override
     public String toString() {
+        java.time.format.DateTimeFormatter formatadorExibicao = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         return "Registro[ " + 
         "id=" + id + 
         ", nomeEquipamento='" + nomeEquipamento + '\'' + 
-        ", cadastro=" + cadastro +
+        ", cadastro=" + cadastro.format(formatadorExibicao) +
         ", disponibilidade=" + disponibilidade + 
-        ']';
+        " ]";
     }
-
 }

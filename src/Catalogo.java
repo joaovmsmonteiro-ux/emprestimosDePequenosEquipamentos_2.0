@@ -32,6 +32,9 @@ public class Catalogo {
                     equipamentos.add(servicos.adicionarEquipamento(id_equipamento));
                     id_equipamento++;
                     break;
+                case 2:
+                    servicos.listarEquipamentos(equipamentos);
+                    break;
                 case 6:
                     parar = true;
                     System.out.println("Encerrando...");
@@ -44,6 +47,5 @@ public class Catalogo {
                     System.out.println("Opção inválida no menu principal!");
             }
         }while(!parar);
-        scanner.close();
     }
 }

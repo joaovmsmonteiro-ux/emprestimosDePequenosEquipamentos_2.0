@@ -1,6 +1,9 @@
 package src;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Servicos {
@@ -16,24 +19,70 @@ public class Servicos {
         System.out.println("[4] Devolver Equipamento");
         System.out.println("[5] Excluir Equipamento");
         System.out.println("[6] Encerrar Formulário");
-        /* Cria uma varável para o usuário escolher as opções acima e o sistema ler a opção escolhida*/
-        int opcao = scanner.nextInt();
-        /* Inicio da converção de String para int:*/
-        /* -> 1 - Leitura da string */
-        scanner.nextLine();
-        /* -> 2 - Retorna o que foi escrito (String) para valores inteiros (int) */
-        return opcao;
+
+        //Tratamento do erro para a não repetição do WHILE quando é digitado uma data inválida
+        //Tratamento para ler como String e converter para int com segurança.
+        try {
+            return Integer.parseInt(scanner.nextLine());
+        }catch(NumberFormatException e){
+            //Retorna opção inválida caso digitem texto no menu
+            return 0;
+        }       
     }
 
     public Equipamento adicionarEquipamento(int id){
+        //Nome do equipamento
         System.out.println("Digite o nome do equipamento: ");
-        String titulo = scanner.nextLine();
-        System.out.println("Digite a data de cadastro do item: ");
-        String cadastro = scanner.nextLocalDateTime();
-        //Criação de objeto da classe equipamento para ser acessada
+        String nomeEquipamento = scanner.nextLine();   
+        
+        //Cria a formatação desejada para a data
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+        //Declaração de varíavel que vai guardar a data válida
+        LocalDateTime cadastro = null;
+
+        //while que vai repetir a pergunta até o usuário digitar a data correta
+        while (true) {
+            //Data do cadastro do equipamento
+            System.out.println("Digite a data de cadastro do item (ex: 30/09/2026 16:15): ");
+            //Castrao iniciado como String
+            String cadastroTexto = scanner.nextLine();
+        
+            try {
+                //Converte o valor da variavel cadastro - String - em varável tipo LocalDataTime
+                cadastro = LocalDateTime.parse(cadastroTexto, formatador);
+                //Quebra o loop e vai para a criação do equipamento
+                break;           
+            } catch (DateTimeParseException e) {
+                System.out.println("❌ Formato de data inválida! Cadastre com a data e hora atual.");
+                //Se o usuário inserir uma data inválida, nula ou em um formato incorreto, o sistema 
+                //deve tratá-la preventivamente utilizando a data e 
+                // hora atual do servidor (DateTime.Now, new Date(), datetime.now(), etc.) para evitar 
+                // falhas ou erros de execução (crashes).
+                System.out.println();
+             }
+        }
+
+        // Criação de objeto da classe equipamento utilizando a data que deu certo no loop
         Equipamento equipamento = new Equipamento(id, nomeEquipamento, cadastro);
         System.out.println();
-        System.out.println("Livro asicionado com sucesso!");
-        return Equipamento; 
+        System.out.println("Equipamento adicionado com sucesso!");
+        return equipamento;
+    }
+
+    //Como não retorna nada, apenas vai printar valores, a função vai ser void
+    public void listarEquipamentos(ArrayList<Equipamento> equipamento){
+        if (equipamento.isEmpty()) {
+            System.out.println();
+            System.out.println("Nenhum equipamento cadastrado!");
+            System.out.println();
+            return;             
+        }
+        System.out.println();
+        System.out.println("Lista de equipamentos: ");
+        for(int i = 0; i < equipamento.size(); i++){
+            System.out.println(equipamento.get(i).toString());
+        }
+        System.out.println();
     }
 } 
