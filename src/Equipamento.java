@@ -1,4 +1,3 @@
-package src;
 import java.time.LocalDateTime;
 
 public class Equipamento {
@@ -38,7 +37,7 @@ public class Equipamento {
         this.cadastro = cadastro;
     }
     //Disponibilidade    
-    public boolean isDisponibilidade() {
+    public boolean getDisponibilidade() {
         return disponibilidade;
     }
     public void setDisponibilidade(boolean disponibilidade) {

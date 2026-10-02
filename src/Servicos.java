@@ -1,5 +1,3 @@
-package src;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -15,7 +13,7 @@ public class Servicos {
         System.out.println("Digite a opção desejada: ");
         System.out.println("[1] Adcionar Equipamento");
         System.out.println("[2] Listar Equipamento");
-        System.out.println("[3] Emprétimo de Equipamento");
+        System.out.println("[3] Empréstimo de Equipamento");
         System.out.println("[4] Devolver Equipamento");
         System.out.println("[5] Excluir Equipamento");
         System.out.println("[6] Encerrar Formulário");
@@ -84,5 +82,18 @@ public class Servicos {
             System.out.println(equipamento.get(i).toString());
         }
         System.out.println();
+    }
+
+    public void emprestarEquipamento(ArrayList<Equipamento> equipamentosEmprestados, int id){
+        for (Equipamento equipamento : equipamentosEmprestados) {
+            if (equipamento.getId() == id) {
+                if(equipamento.getDisponibilidade()){
+                    equipamento.setDisponibilidade(false);
+                    System.out.println("Equipamento emprestado com sucesso!");
+                } else {
+                    System.out.println("❌ Equipamento indisponível para empréstimo.");
+                }
+            }
+        }
     }
 } 
